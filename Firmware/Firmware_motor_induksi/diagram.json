@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "author": "Bagus Satrio Wicaksono",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -278.4, "left": 235.24, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -326.1, "left": 397.8, "attrs": {} },
+    { "type": "wokwi-ds18b20", "id": "temp1", "top": -308.33, "left": 493.68, "attrs": {} },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu1",
+      "top": -111.98,
+      "left": 375.88,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -196.6,
+      "left": -125.8,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -387.6,
+      "left": 243.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot3",
+      "top": -283,
+      "left": -125.8,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -307.2,
+      "left": -124.8,
+      "attrs": { "text": "Sensor Arus dan Voltage (ACS712)\n" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -245.65,
+      "left": 105.6,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -159.25,
+      "left": 105.6,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -124.8, "left": 162.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": -67.2, "left": 210.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": -19.2, "left": 489, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": -192, "left": 431.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd5", "top": -240, "left": 469.8, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -10.56, "left": 461, "rotate": 180, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc2",
+      "top": -221.76,
+      "left": 537.8,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-vcc", "id": "vcc3", "top": -306.44, "left": 364.8, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -341.65,
+      "left": 182.4,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot2",
+      "top": -52.6,
+      "left": -125.8,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot4",
+      "top": 33.8,
+      "left": -125.8,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot5",
+      "top": 158.6,
+      "left": -125.8,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot6",
+      "top": 245,
+      "left": -125.8,
+      "attrs": { "travelLength": "30" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot3:GND", "r1:1", "black", [ "v0" ] ],
+    [ "pot1:GND", "r2:1", "black", [ "v0" ] ],
+    [ "r1:2", "r2:2", "black", [ "h8.4", "v86.4" ] ],
+    [ "gnd1:GND", "r2:2", "black", [ "v0" ] ],
+    [ "gnd2:GND", "esp:CMD", "black", [ "v0" ] ],
+    [ "gnd3:GND", "imu1:GND", "black", [ "v-38.4", "h-38.4" ] ],
+    [ "gnd4:GND", "dht1:GND", "black", [ "v0" ] ],
+    [ "temp1:GND", "gnd5:GND", "black", [ "h-19.2" ] ],
+    [ "imu1:VCC", "vcc1:VCC", "red", [ "h0" ] ],
+    [ "temp1:VCC", "vcc2:VCC", "red", [ "v0", "h19.2" ] ],
+    [ "dht1:VCC", "vcc3:VCC", "red", [ "v9.6", "h-28.8" ] ],
+    [ "r3:2", "led1:C", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
