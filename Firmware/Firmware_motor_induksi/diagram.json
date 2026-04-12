@@ -95,14 +95,14 @@
     {
       "type": "wokwi-slide-potentiometer",
       "id": "pot5",
-      "top": 158.6,
+      "top": 108.6,
       "left": -125.8,
       "attrs": { "travelLength": "30" }
     },
     {
       "type": "wokwi-slide-potentiometer",
       "id": "pot6",
-      "top": 245,
+      "top": 215,
       "left": -125.8,
       "attrs": { "travelLength": "30" }
     }
